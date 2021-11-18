@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+
+
+
+.person_wrapper {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    line-height: 21px;
+    align-items: flex-start;
+}
+
+.person_module {
+    min-width: 212px;
+    min-height: 301px;
+    background-color: #335DF0;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+}
+
+.my_disciplines {
+    background-color: #335DF0;
+    min-width: 660px;
+    height: 100%;
+    padding-bottom: 40px;
+}
+.my_disciplines ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+ul li {
+    list-style-type: none;
+    margin-bottom: 5%;
+}

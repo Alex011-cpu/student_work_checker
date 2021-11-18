@@ -2,9 +2,10 @@ package ru.mirea.student_work_checker.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.mirea.student_work_checker.entities.Role;
+import ru.mirea.student_work_checker.entities.Teacher;
 
 @Repository
-public interface RoleRep extends JpaRepository<Role, Long> {
-    Role findByName(String name);
+public interface TeacherRep extends JpaRepository<Teacher, Long> {
+
+    Teacher findTeacherByUserId(Long id);
 }

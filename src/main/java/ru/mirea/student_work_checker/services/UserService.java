@@ -10,6 +10,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.mirea.student_work_checker.entities.Role;
+import ru.mirea.student_work_checker.entities.Student;
+import ru.mirea.student_work_checker.entities.Teacher;
 import ru.mirea.student_work_checker.entities.User;
 import ru.mirea.student_work_checker.repositories.UserRep;
 
@@ -23,6 +25,23 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     private UserRep userRep;
+
+
+
+    @Autowired
+    private RoleService roleService;
+
+    @Autowired
+    private StudentService studentService;
+
+    @Autowired
+    private TeacherService teacherService;
+
+    @Autowired
+    private GroupService groupService;
+
+    @Autowired
+    private DisciplineService disciplineService;
 
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -52,10 +71,20 @@ public class UserService implements UserDetailsService {
         if (userDb != null) {
             return false;
         }
-
-        user.setRoles(Collections.singleton(new Role("ROLE_" + user.getRole())));
+        user.setRoles(Collections.singleton(roleService.findByName("ROLE_"+user.getRole())));
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRep.save(user);
+        if (user.getRole().equals("STUDENT")) {
+            Student student = new Student();
+            student.setUser(user);
+            student.setGroup(groupService.findGroupByName(user.getGrp()));
+            studentService.saveStudent(student);
+        } else if (user.getRole().equals("TEACHER")) {
+            Teacher teacher = new Teacher();
+            teacher.setUser(user);
+            teacher.setDiscipline(disciplineService.findDisciplineByName(user.getDcp()));
+            teacherService.saveTeacher(teacher);
+        }
         return true;
     }
 }

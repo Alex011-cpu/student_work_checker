@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Student work checker</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}" href="../static/css/index.css">
+</head>
+<body>
+<div class="header">
+    <div class="wrapper">
+        <div class="header_body">
+            <div class="site_name">
+                <a href="/">Student Checker</a>
+            </div>
+            <div class="personal_section">
+                <div class="name">
+                    <a href="/" th:text="${userObj.lastName + ' ' + userObj.firstName}">User</a>
+                </div>
+                <a href="#">
+                    <svg width="53" height="45" viewBox="0 0 53 45" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <rect width="53" height="45" fill="url(#pattern0)"/>
+                        <defs>
+                            <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                <use xlink:href="#image0_2_27" transform="translate(0 -0.0888889) scale(0.0111111 0.0130864)"/>
+                            </pattern>
+                            <image id="image0_2_27" width="90" height="90" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAABmJLR0QA/wD/AP+gvaeTAAAEI0lEQVR4nO3cTahVVRjG8f+bFhmYfWgEkWVfWlkURINMEEvtGwrEskFBw3LWJJo0bxSFSDS1SZNACCyKQg1Jgsi83jQxiwZFlFkUhfpvsI9hF+657X3vedfpnPWDyx3oOs9eD/suzj577QNVVVVVVVVVVVVDKkofQD/qdcAGYBWwArgKWNj75xPAN8AksBvYGRFHShzn/5I6X31S/dj29qib1Xml5zHU1PvUQx0KnmpSXV96PkNHvUB9Yw4Knup1dUHp+Q0F9TL10wGUfMY+dUnpeRbVK3lygCWfMTm2ZdssF4M8k6fap55fet7pHMyaPJNtpeedSl1foOQz7i8x5/QLFnU+MAFcn53dMwmsjIhTmaHnZIb1PE65kqG5wtyYHVqi6GcLZE71XHZg6tJh89nF4czMaQhcGxFHswKzz+gNyXnTCSD1Ej276FXJef2szgzLLvrG5Lx+VmSGZRd9ZXJeP0szw7KLXjjzf0lzYWZY9rsOM/NmEhFp8y/xPnos1aKTZBf9V3JeP39mhmUX/WtyXj8nMsOyi/42Oa+fbzLDsoueSM7r52BmWHbRe5Lz+tmdGZZd9E6aT85Kk+ZY0qQW3duytTczcxp7IuLrzMAS76NfK5A51avZgSXuGc4DDgDLs7N7JoBbR/6eYW+CW7Jzz7Ilu+SibPbFZdtaet7p1AU2u4ey7HUcdyoBqEvM2Xt3UF1cer5F9cr+ZIAl73VcNzhOZbOMbBtAyVsd1+WiH/Vemz/z2Tqgri09n6GmzlOfUHerp1uUe1rdpW5Sh+6GxrA/lbWMZqPLapqtClOfyjpGs2lxF81TWamX1VVVVVVVVVVVVSNh6K4M1UXATcBK4GbgBuAS4CJgUe83wPGzfn4GvqS5RfYFMBERqTuRZlK8aPVyYC1wD7AGuGaOXvoI8CHwPvBBRHw/R6/bSZGi1duAzcADNGftwCNpzvR3gDcj4vOEzH9JK1pdCjwKPAXcnpU7jQngLWB7RAzD43izp96t7mj5kWeW0+p76sNq8WW0NfU89Rl1f8kWW/pMfVo9t3R//4nN2XG4bGezckjd6LCe4eqdNndFRsVH6h2le/2HzdenvaSeLNvLQJxSX3EOlpNZ/XmoVwPbgbtmeyBDbh+wOSK+6voCnYtW1wBv01ytjYPjwCMRsavL4E5Fq6uBd4Fx2zPxB7AuIlo/udC6aJutVZPApW3HjogfgeUR8VObQV32P7zI+JYMsBh4oe2gLkU/1GHMqHmw7YAuS8fvwLh/3+dvEdHqmxq6nNE/dBgzalp/5Nql6B0dxoya1h10WTquAPYDF7cdOyJ+AW6JiFaPW7c+oyPiO2ATyQ+tD4njwGNtS4bZXRkuA54H1gHLgPldX2vInQSO0lygvRwRxwofT1VVVVVVVVVVVVVVVXF/A2DwVjdNViZYAAAAAElFTkSuQmCC"/>
+                        </defs>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="second_header">
+    <div class="wrapper">
+        <ul class="nav">
+            <li>
+                <a href="#">
+                    <div class="block">
+                        <img th:src="@{/img/icons8-пользователь-90 2.svg}" src="../static/img/icons8-пользователь-90 2.svg"/>
+                        <span>Личный кабинет</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="block">
+                        <img th:src="@{/img/icons8-табель-успеваемости-90 1.svg}" src="../static/img/icons8-табель-успеваемости-90 1.svg"/>
+                        <span>Успеваемость</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/">
+                    <div class="block">
+                        <img th:src="@{/img/icons8-академическая-шапка-96 1.svg}" src="../static/img/icons8-академическая-шапка-96 1.svg"/>
+                        <span>Дисциплины</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="third_header">
+    <div class="wrapper">
+        <span>Ваши дисциплины</span>
+    </div>
+</div>
+<div class="wrapper">
+    <div class="discipline">
+        <div class="card_module" th:each="disc: ${disciplineList}">
+            <img th:src="@{/img/image 1.png}" src="../static/img/image 1.png"/>
+            <span th:text="${disc.name}">Разработка серверных частей интернет-ресурсов</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

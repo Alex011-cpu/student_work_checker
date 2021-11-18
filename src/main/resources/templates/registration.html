@@ -47,7 +47,19 @@
             <input type="password" th:field="*{password}" id="password" name="password" placeholder="Пароль">
             <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:errorclass="error"></span>
             <input type="password" th:field="*{passwordConfirm}" placeholder="Подтвердить пароль" />
-            <input type="text" th:field="*{role}" placeholder="Введить роль(STUDENT, TEACHER)" />
+            <select th:field="*{role}" onclick="checkRole()">
+                <option value="">Выберите роль</option>
+                <option value="STUDENT">STUDENT</option>
+                <option value="TEACHER">TEACHER</option>
+            </select>
+            <select th:field="*{grp}">
+                <option value="">Выберите группу</option>
+                <option th:each="group: ${groupList}" th:value="${group.name}" th:text="${group.name}"></option>
+            </select>
+            <select th:field="*{dcp}">
+                <option value="">Выберите дисциплину</option>
+                <option th:each="disc: ${disciplineList}" th:value="${disc.name}" th:text="${disc.name}"></option>
+            </select>
             <input type="submit" value="Зарегистрироваться">
         </form>
 
@@ -55,8 +67,26 @@
 </div>
 <script>
     let errorModule = document.querySelector("#formContent > form > div");
+    let role = document.querySelector("#role");
+    let grp = document.querySelector("#grp");
+    let dcp = document.querySelector("#dcp");
+    grp.style.visibility="hidden";
+    dcp.style.visibility="hidden";
     if (document.querySelector("#formContent > form > div > span").innerText !== "") {
         errorModule.style.display="block";
+    }
+    function checkRole() {
+        if (role.value==='STUDENT') {
+            grp.style.visibility="visible";
+            dcp.style.visibility="hidden";
+        }
+        else if (role.value==='TEACHER'){
+            grp.style.visibility="hidden";
+            dcp.style.visibility="visible";
+        } else {
+            grp.style.visibility="hidden";
+            dcp.style.visibility="hidden";
+        }
     }
 </script>
 </body>
