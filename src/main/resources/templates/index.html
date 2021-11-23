@@ -68,10 +68,12 @@
     </div>
     <div class="wrapper">
         <div class="discipline">
-            <div class="card_module" th:each="disc: ${disciplineList}">
-                <img th:src="@{/img/image 1.png}" src="../static/img/image 1.png"/>
-                <span th:text="${disc.name}">Разработка серверных частей интернет-ресурсов</span>
-            </div>
+            <a th:each="disc: ${disciplineList}" th:href="@{/discipline/{discipline_name}/(discipline_name=${disc.name})}" >
+                <div class="card_module">
+                    <img th:src="@{/img/image 1.png}" src="../static/img/image 1.png"/>
+                    <span th:text="${disc.name}">Разработка серверных частей интернет-ресурсов</span>
+                </div>
+            </a>
         </div>
     </div>
 </body>

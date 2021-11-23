@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Student work checker</title>
+    <link rel="stylesheet" th:href="@{/css/site_discipline.css}" href="../static/css/site_discipline.css">
     <link rel="stylesheet" th:href="@{/css/index.css}" href="../static/css/index.css">
 </head>
 <body>
@@ -14,9 +15,9 @@
             </div>
             <div class="personal_section">
                 <div class="name">
-                    <a href="/teacherInfo" th:text="${userObj.lastName + ' ' + userObj.firstName}">User</a>
+                    <a href="/studentInfo" th:text="${student.user.lastName + ' ' + student.user.firstName}">User</a>
                 </div>
-                <a href="/teacherInfo">
+                <a href="/studentInfo">
                     <svg width="53" height="45" viewBox="0 0 53 45" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <rect width="53" height="45" fill="url(#pattern0)"/>
                         <defs>
@@ -35,7 +36,7 @@
     <div class="wrapper">
         <ul class="nav">
             <li>
-                <a href="/teacherInfo">
+                <a href="/studentInfo">
                     <div class="block">
                         <img th:src="@{/img/icons8-пользователь-90 2.svg}" src="../static/img/icons8-пользователь-90 2.svg"/>
                         <span>Личный кабинет</span>
@@ -46,7 +47,7 @@
                 <a href="#">
                     <div class="block">
                         <img th:src="@{/img/icons8-табель-успеваемости-90 1.svg}" src="../static/img/icons8-табель-успеваемости-90 1.svg"/>
-                        <span>Успеваемость</span>
+                        <span>Оценки</span>
                     </div>
                 </a>
             </li>
@@ -63,18 +64,18 @@
 </div>
 <div class="third_header">
     <div class="wrapper">
-        <span>Ваши дисциплины</span>
+        <span th:text="${'Ваши дисциплины / ' + discipline.name}"></span>
     </div>
 </div>
 <div class="wrapper">
-    <a th:each="disc: ${disciplineList}" th:href="@{/discipline/{discipline_name}/(discipline_name=${disc.name})}" >
-        <div class="discipline">
-            <div class="card_module">
-                <img th:src="@{/img/image 1.png}" src="../static/img/image 1.png"/>
-                <span th:text="${disc.name}">Разработка серверных частей интернет-ресурсов</span>
-            </div>
+    <div class="available_disc">
+        <div class="tasks">
+            <span style="border-bottom: 1px solid;">Доступные задания:</span>
+            <a href="" th:each="task: ${taskList}" th:href="@{/discipline/{discipline_name}/task/{task_name}/(discipline_name=${discipline.name},task_name=${task.name})}">
+                <span  th:text="${task.name}"></span>
+            </a>
         </div>
-    </a>
+    </div>
 </div>
 </body>
 </html>

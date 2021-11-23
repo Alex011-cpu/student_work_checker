@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Student work checker</title>
     <link rel="stylesheet" th:href="@{/css/index.css}" href="../static/css/index.css">
+    <link rel="stylesheet" th:href="@{/css/person.css}" href="../static/css/person.css">
 </head>
 <body>
 <div class="header">
@@ -14,7 +15,7 @@
             </div>
             <div class="personal_section">
                 <div class="name">
-                    <a href="/teacherInfo" th:text="${userObj.lastName + ' ' + userObj.firstName}">User</a>
+                    <a href="/teacherInfo" th:text="${teacher.user.lastName + ' ' + teacher.user.firstName}">User</a>
                 </div>
                 <a href="/teacherInfo">
                     <svg width="53" height="45" viewBox="0 0 53 45" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -63,18 +64,30 @@
 </div>
 <div class="third_header">
     <div class="wrapper">
-        <span>Ваши дисциплины</span>
+        <span>Личный кабинет</span>
     </div>
 </div>
 <div class="wrapper">
-    <a th:each="disc: ${disciplineList}" th:href="@{/discipline/{discipline_name}/(discipline_name=${disc.name})}" >
-        <div class="discipline">
-            <div class="card_module">
-                <img th:src="@{/img/image 1.png}" src="../static/img/image 1.png"/>
-                <span th:text="${disc.name}">Разработка серверных частей интернет-ресурсов</span>
-            </div>
+    <div class="person_wrapper">
+
+        <div class="person_module">
+            <img th:src="@{/img/icons8-пользователь-90 2.svg}" src="../static/img/icons8-пользователь-90 2.svg"/>
+            <span th:text="${'Фамилия: ' + teacher.user.lastName}"></span>
+            <span th:text="${'Имя: ' + teacher.user.firstName}"></span>
+            <span th:text="${'Почта: ' + teacher.user.email}"></span>
+            <span>Роль: преподаватель</span>
+            <form th:action="@{/auth/logout}" method="get">
+                <button type="submit" class="btn">Выйти</button>
+            </form>
         </div>
-    </a>
+        <div class="my_disciplines">
+            <ul>
+                <li>Мои дисциплины:</li>
+                <li th:each="disc: ${disciplineList}" th:text="${disc.name}"></li>
+            </ul>
+        </div>
+    </div>
+
 </div>
 </body>
 </html>

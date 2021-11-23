@@ -72,6 +72,7 @@
 
         <div class="person_module">
             <img th:src="@{/img/icons8-пользователь-90 2.svg}" src="../static/img/icons8-пользователь-90 2.svg"/>
+            <span th:text="${'Фамилия: ' + student.user.email}"></span>
             <span th:text="${'Фамилия: ' + student.user.lastName}"></span>
             <span th:text="${'Имя: ' + student.user.firstName}"></span>
             <span th:text="${'Группа: ' + student.group.name}"></span>

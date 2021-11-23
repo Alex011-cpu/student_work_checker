@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@300&display=swap');
+/*discipline Section*/
+.available_disc {
+    max-width: 780px;
+    height: 100%;
+    background-color: #335DF0;
+    font-size: 22px;
+    line-height: 35px;
+}
+.available_disc .tasks {
+    padding: 30px 0px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.available_disc .tasks span {
+    margin-bottom: 3%;
+}
+
+.add_btn {
+    background-color: #95FF70;
+    padding: 7px 20px 7px 20px;
+    color: #000;
+    margin-top: 3%;
+}
+
+/*AddTask Section*/
+.inputSection {
+    max-width: 415px;
+    height: 100%;
+    background-color: #335DF0;
+
+}
+
+.inputSection form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputSection input[type="text"] {
+    background-color: #D0F1FF;
+    color: black;
+    border: 0;
+    padding: 19px 170px 19px 19px;
+    border-radius: 0;
+    margin-top: 4%;
+}
+
+.inputSection span {
+    margin-top: 4%;
+}
+.inputSection input[type="file"] {
+    margin: 4% 0 4% 0;
+}
+.inputSection input[type="submit"]{
+    background-color: #95FF70;
+    border: 0;
+    border-radius: 0;
+    padding: 5px 20px;
+    margin-bottom: 4%;
+}
+
+.inputSection input[type="submit"]:hover {
+    cursor: pointer;
+}
+
+.tasks a:hover {
+    text-decoration: underline;
+}
+/*STUDENT SECTION*/
+
+.answer_section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #335DF0;
+    max-width: 415px;
+    height: 100%;
+}
+.answer_section span {
+    margin-top: 4%;
+}
+
+.answer_section .name, .answer_section .description{
+    background-color: #D0F1FF;
+    color: black;
+    border: 0;
+    padding: 19px 170px 19px 19px;
+    border-radius: 0;
+}
+
+.file_header {
+    margin-bottom: 4%;
+}
+
+.answer_section input[type="submit"]{
+    background-color: #95FF70;
+    border: 0;
+    border-radius: 0;
+    padding: 5px 20px;
+    margin: 4% 0 4% 0;
+}
+
+.answer_section a {
+    text-decoration: underline;
+}
+
+.answer_section .answer {
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.score {
+    background-color: #D0F1FF;
+    border-radius: 0;
+    padding: 5px 20px;
+    margin: 4% 0 4% 0;
+    color: black;
+}
+
+/*Teacher Section*/
+

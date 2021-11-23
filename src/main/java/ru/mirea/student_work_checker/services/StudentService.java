@@ -28,4 +28,8 @@ public class StudentService {
     public Student findStudentByUserId(Long id){
         return studentRep.findStudentByUserId(id);
     }
+
+    public List<Student> findAllByGroup(Long id) {
+        return studentRep.findAllByGroupId(id);
+    }
 }
